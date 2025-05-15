@@ -44,3 +44,14 @@ The goal addresses key business challenges, such as identifying sales trends, to
      - Sales and revenue performance
      - Branch and shift optimization
    -  For detailed business questions and problem statements, see [`Walmart Business Problem.pdf`](./Walmart%20Business%20Problem.pdf).
+
+
+## Dashboard Visualization
+  A dashboard was developed to enhance the insights derived from SQL and Python analyses. This visual representation highlights key metrics and trends in the Walmart sales data, enabling a clearer and more intuitive understanding of performance patterns and business drivers.
+  
+### Dashboard Highlights 
+   - Top 5 branches by Sales
+   - Average Sales by City
+   - Top City by Profit
+   - Top 5 average weekly sales by branch
+   - **Access the Dashboard** [`Walmart Dashboard.pdf`](./Walmart%20Dashboard.pdf).
