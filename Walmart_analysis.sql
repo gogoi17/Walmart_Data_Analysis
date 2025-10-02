@@ -19,7 +19,7 @@ FROM walmart;
 
 
 -- Business Problems 
--- Q1 Find different payment methods, number of transactions,and quantity sold by payment method.
+-- Q1 Find different payment methods, number of transactions, and quantity sold by payment method.
 SELECT
 	payment_method, 
 	COUNT(*) AS num_payments,
@@ -66,7 +66,7 @@ FROM walmart
 GROUP BY Branch, DATE_FORMAT(DATE,'%Y-%m')
 ORDER BY Branch, month;
 
--- Q6 Indentify the month with the highest average transaction value
+-- Q6 Identify the month with the highest average transaction value
 SELECT 
 	DATE_FORMAT(DATE,'%Y-%m') AS month,
     AVG(total) AS avg_transaction_value
@@ -78,8 +78,8 @@ LIMIT 1;
 -- Q7 Compare weekday vs weekend sales 
  SELECT 
 	CASE 
-		WHEN DAYNAME(DATE) IN ('Saturday','Sunday') THEN 'Weekend'
-        ELSE 'Weeday'
+		WHEN DAYNAME(DATE) IN ('Saturday', 'Sunday') THEN 'Weekend'
+        ELSE 'Weekday'
 	END AS day_type,
     COUNT(distinct invoice_id) AS total_transactions,
     SUM(total) AS total_sales, 
@@ -116,8 +116,8 @@ ORDER BY revenue_decrease_ratio DESC
 LIMIT 5;
 
  
--- Q9 Identify the buiest day of the week for each branch based on the number of transactions
-SELECT Branch, buiest_day, no_transactions
+-- Q9 Identify the busiest day of the week for each branch based on the number of transactions
+SELECT Branch, busiest_day, no_transactions
 FROM(
 	SELECT 
 		Branch,
@@ -125,7 +125,7 @@ FROM(
 		COUNT(*) AS no_transactions,
 		RANK() OVER(PARTITION BY Branch ORDER BY COUNT(*) DESC) AS rank_
 	FROM walmart
-	GROUP BY Branch, buiest_day
+	GROUP BY Branch, busiest_day
 ) AS ranked 
 WHERE rank_ = 1;
 
@@ -142,7 +142,7 @@ FROM walmart
 GROUP BY Branch,shift
 ORDER BY Branch, num_invoices DESC;
 
--- Q11 Indentify the highest-rated category in each branch , display the branch category and avg-rating
+-- Q11 Identify the highest-rated category in each branch, display the branch category and avg-rating
 WITH ranked_categories AS (
     SELECT 
         Branch,
@@ -156,7 +156,7 @@ SELECT Branch, category, avg_rating
 FROM ranked_categories
 WHERE rn = 1;
 
--- Q12 Determine the avegrage,minimum,and maximum rating of categories for each city
+-- Q12 Determine the average, minimum, and maximum rating of categories for each city
 SELECT
 	City,
     category,
@@ -164,7 +164,7 @@ SELECT
     MIN(rating) AS min_rating,
     MAX(rating) AS max_rating
 FROM walmart
-GROUP BY City,category;
+GROUP BY City, category;
 
 -- Q13 What is the average rating for each product category?
 SELECT 
